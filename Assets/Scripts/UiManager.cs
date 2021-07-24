@@ -26,6 +26,7 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         SyncValuables(null);
+        SyncStats();
     }
 
     public void SyncValuables(ValueableItem item)
@@ -39,8 +40,8 @@ public class UiManager : MonoBehaviour
 
     public void SyncStats()
     {
-        int hp = PlayerController.Singleton.Inventory.Gold;
-        int mana = PlayerController.Singleton.Inventory.Coins;
+        int hp = PlayerController.Singleton.PlayerStats.HP;
+        int mana = PlayerController.Singleton.PlayerStats.Mana;
 
         HpText.text = "Hp: " + hp;
         ManaText.text = "Mana: " + mana;

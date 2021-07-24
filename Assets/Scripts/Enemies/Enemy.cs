@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     {
         if (HP <= 0)
         {
+            EventManager.Singleton.OnEnemyDied(this, ActionType.Kill);
             Destroy(gameObject);
         }
     }

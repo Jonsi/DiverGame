@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void CollectItem(CollectableItem item)
+    public void CollectItem(CollectableItem item,ActionType action)
     {
         switch (item.ItemType)
         {
