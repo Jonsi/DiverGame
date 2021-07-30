@@ -20,7 +20,9 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        //Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y, Camera.main.transform.position.z));
         Vector2 bowPos = transform.position;
         _direction = mousePos - bowPos;
 
@@ -33,4 +35,5 @@ public class Weapon : MonoBehaviour
         Rigidbody2D rgdBdy = bullet.GetComponent<Rigidbody2D>();
         rgdBdy.velocity = _direction.normalized * BulletSpeed;
     }
+
 }

@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Ground
   - ValueableItem
   layers:
   - Default
@@ -16,10 +15,10 @@ TagManager:
   - UI
   - 
   - 
-  - Items
   - Player
-  - Bullets
-  - Enemy
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -45,14 +44,11 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 4213383847
-    locked: 0
-  - name: Items
-    uniqueID: 3240583301
+    uniqueID: 2113806029
     locked: 0
   - name: Player
-    uniqueID: 4153157661
+    uniqueID: 654772341
     locked: 0
-  - name: Enemy
-    uniqueID: 4122182401
+  - name: Animals
+    uniqueID: 4063553651
     locked: 0

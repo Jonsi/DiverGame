@@ -10,6 +10,10 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 /Assets/AssetStore
+/Assets/TextMesh Pro
+/Assets/Azerilo
+/Assets/ExampleAssets
+/Assets/TutorialInfo
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
