@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.20749268, g: 0.21147677, b: 0.14576986, a: 1}
+  m_IndirectSpecularColor: {r: 0.20749143, g: 0.21147497, b: 0.14576834, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1025,12 +1025,12 @@ PrefabInstance:
     - target: {fileID: 5046310295701276882, guid: 0e9950bbf3b8ce249b3a4610274a54da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.94
+      value: -9.04
       objectReference: {fileID: 0}
     - target: {fileID: 5046310295701276882, guid: 0e9950bbf3b8ce249b3a4610274a54da,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3
+      value: -4.26
       objectReference: {fileID: 0}
     - target: {fileID: 5046310295701276882, guid: 0e9950bbf3b8ce249b3a4610274a54da,
         type: 3}
@@ -1250,12 +1250,12 @@ PrefabInstance:
     - target: {fileID: 5046310296852619357, guid: 0e9950bbf3b8ce249b3a4610274a54da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.94
+      value: -9.04
       objectReference: {fileID: 0}
     - target: {fileID: 5046310296852619357, guid: 0e9950bbf3b8ce249b3a4610274a54da,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3
+      value: -4.26
       objectReference: {fileID: 0}
     - target: {fileID: 5046310296852619357, guid: 0e9950bbf3b8ce249b3a4610274a54da,
         type: 3}
@@ -1936,12 +1936,12 @@ PrefabInstance:
     - target: {fileID: 398314941670518596, guid: a723b7e994591d045aa38309541275b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.94
+      value: -9.04
       objectReference: {fileID: 0}
     - target: {fileID: 398314941670518596, guid: a723b7e994591d045aa38309541275b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3
+      value: -4.26
       objectReference: {fileID: 0}
     - target: {fileID: 398314941670518596, guid: a723b7e994591d045aa38309541275b6,
         type: 3}
