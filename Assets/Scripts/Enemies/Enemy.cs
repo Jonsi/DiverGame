@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public EnemyType EnemyType;
     public int HP = 1;
     public int Damage = 1;
+    public float ExpPoints = 1;
 
     // Update is called once per frame
     void Update()
