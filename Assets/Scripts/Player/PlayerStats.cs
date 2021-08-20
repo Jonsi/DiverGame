@@ -15,13 +15,12 @@ public class PlayerStats : MonoBehaviour
 
     public void HandleEnemyDeath(Enemy enemy,ActionType type)
     {
-        LevelSystem.AddExp(enemy.ExpPoints);
+       LevelSystem.AddExp(enemy.ExpPoints);
     }
 
     private void OnDisable()
     {
         EventManager.Singleton.E_EnemyDied -= HandleEnemyDeath;
-
     }
 }
 
@@ -34,10 +33,8 @@ public class LevelSystem
     [Range(1f, 2f)]
     public float NextLevelExpFactor = 1;
 
-    /// <summary>
-    /// Returns true if level up
-    /// </summary>
-    public bool AddExp(float amount)
+
+    public void AddExp(float amount)
     {
         CurrentExp += amount;
 
@@ -46,8 +43,7 @@ public class LevelSystem
             CurrentLevel++;
             CurrentExp -= ExpToNextLevel;
             ExpToNextLevel *= NextLevelExpFactor;
-            return true;
+            EventManager.Singleton.OnPlayerLevelUp(CurrentLevel);
         }
-        return false;
     }
 }
