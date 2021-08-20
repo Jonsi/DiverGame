@@ -28,7 +28,8 @@ public class EventManager : MonoBehaviour
     public delegate void D_EnemyDied(Enemy enemy,ActionType action = ActionType.Kill);
     public event D_EnemyDied E_EnemyDied;
 
-
+    public delegate void D_LevelUp(int level = -1);
+    public event D_LevelUp E_PlayerLevelUp;
     public void OnItemCollected(CollectableItem item)
     {
         E_ItemCollected?.Invoke(item);
@@ -47,6 +48,11 @@ public class EventManager : MonoBehaviour
     public void OnValuableItemAdded(ValueableItem item)
     {
         E_ValuableItemAdded?.Invoke(item);
+    }
+
+    public void OnPlayerLevelUp(int level = -1)
+    {
+        E_PlayerLevelUp?.Invoke(level);
     }
 
 
