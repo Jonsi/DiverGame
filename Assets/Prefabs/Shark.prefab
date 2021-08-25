@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9cb68c5d578109c46939185b39a7f6bd, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eff63a4908ece914d9e46e31441a128f, type: 3}
+  m_Sprite: {fileID: -7442722247283815586, guid: 51ae5787d0673434580037015f2d3680,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -157,6 +158,7 @@ MonoBehaviour:
   EnemyType: 2
   HP: 3
   Damage: 1
+  ExpPoints: 1
 --- !u!114 &4720812365699738783
 MonoBehaviour:
   m_ObjectHideFlags: 0
