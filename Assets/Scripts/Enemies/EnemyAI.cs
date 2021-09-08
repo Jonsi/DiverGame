@@ -7,26 +7,32 @@ public enum State
     Patrol,
     Chase,
     Attack,
+    Death,
     Yield,
 }
 public class EnemyAI : MonoBehaviour
 {
+    public Enemy Enemy;
     public Rigidbody2D RgdBdy;
+    public Animator Anmtr;
     public int Speed;
     public int ChaseSpeed;
+    public float ChargeForce;
     public int PatrolRadius = 5;
     public State State;
 
-    public float rayDistance = 5f;
+    public float ChargeDistance = 5f;
     public float ChaseDistance = 5f;
     public float PatrolFlipDistance = 0.2f;
-
-    private PlayerController Player;
-    private EnemyType EnemyType;
 
     public Vector2 SpawnPoint;
     public Vector2 PartolTarget;
     public Vector2 Target;
+
+    private PlayerController Player;
+    private EnemyType EnemyType;
+    private Vector2 _direction;
+    private float _playerDistance;
 
 
     // Start is called before the first frame update
@@ -56,6 +62,8 @@ public class EnemyAI : MonoBehaviour
                 break;
             case State.Attack:
                 break;
+            case State.Death:
+                break;
             case State.Yield:
                 ReturnToSpawnPoint();
                 break;
@@ -65,15 +73,38 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    public void SetState()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (EnemyType != EnemyType.Agressive)
+        Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+
+        if (bullet == null)
         {
             return;
         }
 
-        float playerDistance = Vector2.Distance(transform.position, Player.transform.position);
-        if (playerDistance <= ChaseDistance)
+        Enemy.HP -= bullet.Damage;
+        if(Enemy.HP <= 0)
+        {
+            RgdBdy.velocity = Vector2.zero;
+            State = State.Death;
+            Anmtr.SetTrigger("death");
+        }
+    }
+
+    public void Die()
+    {
+        EventManager.Singleton.OnEnemyDied(Enemy, ActionType.Kill);
+        Destroy(gameObject);
+    }
+    public void SetState()
+    {
+        if (EnemyType != EnemyType.Agressive || State == State.Death)
+        {
+            return;
+        }
+
+        _playerDistance = Vector2.Distance(transform.position, Player.transform.position);
+        if (_playerDistance <= ChaseDistance)
         {
             SetTarget(Player.transform.position);
             State = State.Chase;
@@ -100,8 +131,8 @@ public class EnemyAI : MonoBehaviour
     public void MoveToTarget(float speed)
     {
         Flip();
-        Vector2 direction = Target - (Vector2)transform.position;
-        RgdBdy.velocity = direction.normalized * speed * Time.fixedDeltaTime;
+        _direction = Target - (Vector2)transform.position;
+        RgdBdy.velocity = _direction.normalized * speed * Time.fixedDeltaTime;
     }
 
     public void SetTarget(Vector2 target)
@@ -114,17 +145,18 @@ public class EnemyAI : MonoBehaviour
     {
 
     }
+
     public void Chase()
     {
         MoveToTarget(ChaseSpeed);
+        Charge();
     }
     public void Charge()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Player.transform.position, rayDistance);
-
-        if (hit.transform.gameObject.CompareTag("Player"))
+        if(_playerDistance < ChargeDistance)
         {
-
+            Anmtr.SetTrigger("attack");
+            RgdBdy.AddForce(_direction * ChargeForce);
         }
     }
 

@@ -383,6 +383,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 5
   Mana: 5
+  LevelSystem:
+    CurrentLevel: 1
+    CurrentExp: 0
+    ExpToNextLevel: 10
+    NextLevelExpFactor: 1.5
 --- !u!61 &398314941670518595
 BoxCollider2D:
   m_ObjectHideFlags: 0

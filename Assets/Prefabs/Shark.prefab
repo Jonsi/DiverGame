@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9cb68c5d578109c46939185b39a7f6bd, type: 2}
+  - {fileID: 2100000, guid: d7023e3e7a9c7da4596bd74586d54412, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eff63a4908ece914d9e46e31441a128f, type: 3}
+  m_Sprite: {fileID: -7442722247283815586, guid: 51ae5787d0673434580037015f2d3680,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -155,8 +156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyType: 2
-  HP: 3
+  HP: 1
   Damage: 1
+  ExpPoints: 1
 --- !u!114 &4720812365699738783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,13 +171,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe3886d43910ad48babebfd60d1b5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 4720812365699738781}
   RgdBdy: {fileID: 4720812365699738780}
+  Anmtr: {fileID: 4720812365699738769}
   Speed: 30
   ChaseSpeed: 45
+  ChargeForce: 2
   PatrolRadius: 5
   State: 0
-  rayDistance: 5
-  ChaseDistance: 5
+  ChargeDistance: 5
+  ChaseDistance: 8
   PatrolFlipDistance: 0.2
   SpawnPoint: {x: 0, y: 0}
   PartolTarget: {x: 0, y: 0}
