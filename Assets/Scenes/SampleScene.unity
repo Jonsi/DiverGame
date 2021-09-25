@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -349,12 +349,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe3886d43910ad48babebfd60d1b5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
   RgdBdy: {fileID: 1502443340}
+  Anmtr: {fileID: 0}
   Speed: 15
   ChaseSpeed: 20
+  ChargeForce: 0
   PatrolRadius: 5
   State: 0
-  rayDistance: 5
+  ChargeDistance: 5
   ChaseDistance: 5
   PatrolFlipDistance: 0.2
   SpawnPoint: {x: 0, y: 0}
@@ -375,6 +378,7 @@ MonoBehaviour:
   EnemyType: 1
   HP: 1
   Damage: 1
+  ExpPoints: 1
 --- !u!95 &1502443343
 Animator:
   serializedVersion: 3
@@ -712,7 +716,7 @@ PrefabInstance:
     - target: {fileID: 398314941670518596, guid: a723b7e994591d045aa38309541275b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 398314941670518596, guid: a723b7e994591d045aa38309541275b6,
         type: 3}
@@ -1104,6 +1108,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5046310295701276882, guid: 0e9950bbf3b8ce249b3a4610274a54da,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -341.27237
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046310295701276882, guid: 0e9950bbf3b8ce249b3a4610274a54da,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -333.1204
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046310295701276882, guid: 0e9950bbf3b8ce249b3a4610274a54da,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 113.448586
+      objectReference: {fileID: 0}
     - target: {fileID: 5046310296570568758, guid: 0e9950bbf3b8ce249b3a4610274a54da,
         type: 3}
       propertyPath: m_Name
@@ -1169,5 +1188,20 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 772828347}
+    - target: {fileID: 5046310296852619357, guid: 0e9950bbf3b8ce249b3a4610274a54da,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -341.27237
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046310296852619357, guid: 0e9950bbf3b8ce249b3a4610274a54da,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -333.1204
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046310296852619357, guid: 0e9950bbf3b8ce249b3a4610274a54da,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 113.448586
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e9950bbf3b8ce249b3a4610274a54da, type: 3}
