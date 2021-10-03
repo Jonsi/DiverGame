@@ -2,13 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState
+{
+    Idle,
+    Move,
+    Melee,
+    Aim,
+    Shoot,
+    Death
+}
+
 public class PlayerController : MonoBehaviour
 {
 
     public static PlayerController Singleton;
-    public Inventory Inventory;
+    
+    //Components
+    public PlayerAnimator Animator;
+    public Rigidbody2D RgdBody;
     public PlayerStats PlayerStats;
+
+    //Tools
+    public Inventory Inventory;
     public Weapon Weapon;
+
+    //Vars
+    public float Speed = 10f;
+    public PlayerState CurretState;
+
+    private Vector2 velocity;
 
     private void Awake()
     {
@@ -20,15 +42,37 @@ public class PlayerController : MonoBehaviour
         EventManager.Singleton.E_ItemCollected += CollectItem;
     }
 
+    private void Start()
+    {
+        SetState(PlayerState.Idle);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        HandleMovement();
+    }
+    
+    public void SetState(PlayerState state)
+    {
+        if (CurretState == state)
+            return;
+
+        CurretState = state;
+        switch (state)
         {
-            FireWeapon();
+            case PlayerState.Idle:
+                Animator.SetAnimation(Animator.IdleAnim);
+                break;
+            case PlayerState.Move:
+                Animator.SetAnimation(Animator.MoveAnim);
+                break;
+            case PlayerState.Melee:
+                Animator.SetAnimation(Animator.AttackAnim);
+                break;
         }
     }
-
+ 
     public void CollectItem(CollectableItem item,ActionType action)
     {
         switch (item.ItemType)
@@ -44,6 +88,30 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+
+    public void HandleMovement()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        velocity.Set(horizontal, vertical);
+        RgdBody.velocity = velocity * Speed * Time.deltaTime * 100;
+
+        if (velocity.magnitude == 0)
+        {
+            SetState(PlayerState.Idle);
+        }
+        else
+        {
+            SetState(PlayerState.Move);
+        }
+    }
+
+    public void MeleeAttack()
+    {
+        SetState(PlayerState.Melee);
+    }
+
 
     public void FireWeapon()
     {

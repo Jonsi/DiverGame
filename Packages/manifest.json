@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.esotericsoftware.spine.urp-shaders": "file:C:/Users/jons1/OneDrive/Desktop/com.esotericsoftware.spine.urp-shaders-4.0-2019.1",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.cinemachine": "2.6.5",
     "com.unity.collab-proxy": "1.2.16",
