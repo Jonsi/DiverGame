@@ -6,19 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float Speed = 1f;
-    public Animator Animator;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Move();
-    }
 
     public void Move()
     {
@@ -26,8 +13,5 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         transform.position += new Vector3(horizontal, vertical, 0) * Time.deltaTime * Speed;
-
-        Animator.SetFloat("vertical", vertical);
-        Animator.SetFloat("horizontal", horizontal);
     }
 }
