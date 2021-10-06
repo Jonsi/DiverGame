@@ -15,9 +15,9 @@ public class EnemyAI : MonoBehaviour
     public Enemy Enemy;
     public Rigidbody2D RgdBdy;
     public Animator Anmtr;
-    public int Speed;
-    public int ChaseSpeed;
-    public float ChargeForce;
+    public int Speed = 10;
+    public int ChaseSpeed = 20;
+    public float ChargeForce = 30;
     public int PatrolRadius = 5;
     public State State;
 
