@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
     public float MaxPatrolRadius = 10f;
     [Range(0f, 1f)] public float PatrolClamp_Y = 0.5f;
     public float PatrolFlipDistance = 0.2f;
-    public float ReacedTargetDistance = 2f;
+    public float ReachedTargetDistance = 2f;
     public float PatrolRestTimer = 2f;
 
     [Header("Escape")]
@@ -41,6 +41,7 @@ public class EnemyAI : MonoBehaviour
     private Vector2 _target;
     private float _speedLerp;
     private float _speed;
+    private float _restTimer;
 
     private void Awake()
     {
@@ -51,27 +52,34 @@ public class EnemyAI : MonoBehaviour
     {
         SetState(EnemyState.Idle);
     }
+    public IEnumerator RestCOR()
+    {
+        SetState(EnemyState.Rest);
+        yield return new WaitForSeconds(_restTimer);
+        SetState(EnemyState.Idle);
+    }
 
     private void Update()
     {
+
         if (Enemy.CurrentState == EnemyState.Rest)
         {
             return;
         }
         
         HandlePlayerDistance();
+        HandleState();
     }
 
     private void FixedUpdate()
     {
-        if (Enemy.CurrentState == EnemyState.Rest)
+        if(Enemy.CurrentState == EnemyState.Rest)
         {
             return;
         }
 
         MoveToTarget();
     }
-
 
     //State Management
     public void HandlePlayerDistance()
@@ -117,12 +125,31 @@ public class EnemyAI : MonoBehaviour
     {
         if (Enemy.CurrentState == state)
         {
-
             return;
         }
 
+        switch (Enemy.CurrentState)
+        {
+            case EnemyState.Idle:
+                break;
+            case EnemyState.Patrol:
+                StartPatrol();
+                break;
+            case EnemyState.Chase:
+                break;
+            case EnemyState.Attack:
+                break;
+            case EnemyState.Death:
+                break;
+            case EnemyState.Escape:
+                break;
+            case EnemyState.Rest:
+                break;
+            default:
+                break;
+        }
+
         Enemy.CurrentState = state;
-        HandleState();
     }
     public void HandleState()
     {
@@ -131,7 +158,13 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.Idle:
                 break;
             case EnemyState.Patrol:
-                Patrol();
+                if(Vector2.Distance(transform.position,_target) < PatrolFlipDistance)
+                {
+                    _restTimer = PatrolRestTimer;
+                    StartCoroutine("RestCOR");
+                    return;
+                }
+                ChangeSpeed(PatrolSpeed, PatrolSpeedLerp);
                 break;
             case EnemyState.Chase:
                 break;
@@ -154,22 +187,28 @@ public class EnemyAI : MonoBehaviour
         Anmtr.Play("death");
         EventManager.Singleton.OnEnemyDied(Enemy, ActionType.Kill);
     }
-    private void Patrol()
+    private void StartPatrol()
     {
-        ChangeSpeed(PatrolSpeed, PatrolSpeedLerp);
         Vector2 patrolDir = Random.insideUnitCircle.normalized * Random.Range(MinPatrolRadius, MaxPatrolRadius);
         patrolDir.y *= PatrolClamp_Y;
         SetTarget(patrolDir);
     }
+
     public void Chase()
     {
         ChangeSpeed(ChaseSpeed, ChaseSpeedLerp);
     }
+    
     public void Escape()
     {
-        ChangeSpeed(EscapeSpeed, EscapeSpeedLerp);
+        if(_playerDistance > EscapeDistance)
+        {
+            SetState(EnemyState.Patrol);
+            return;
+        }
 
-        Vector2 escapeDir = (_target - (Vector2)transform.position) * -1;
+        ChangeSpeed(EscapeSpeed, EscapeSpeedLerp);
+        Vector2 escapeDir = (_target - (Vector2)transform.position).normalized * -1;
         escapeDir.y *= EscapeClampY;
         SetTarget((Vector2)transform.position + escapeDir);
     }
@@ -178,13 +217,6 @@ public class EnemyAI : MonoBehaviour
         RgdBdy.AddForce(RgdBdy.velocity * AttackForce);
         //animate
         //Rest
-    }
-
-    public IEnumerator RestCOR(float timer, EnemyState nextState = EnemyState.Idle)
-    {
-        SetState(EnemyState.Rest);
-        yield return new WaitForSeconds(timer);
-        SetState(nextState);
     }
 
     //AI
@@ -204,10 +236,6 @@ public class EnemyAI : MonoBehaviour
         transform.right = Vector3.Lerp(transform.right,(Vector3) _target - transform.position, _speedLerp) * _speed;
         RgdBdy.AddForce(-RgdBdy.velocity * WaterResistance);
         Anmtr.speed = RgdBdy.velocity.sqrMagnitude;
-        if (Vector2.Distance(transform.position, _target) < ReacedTargetDistance)
-        {
-            StartCoroutine(RestCOR(PatrolRestTimer));
-        }
     }
     void HandleFlip()
     {
@@ -219,7 +247,6 @@ public class EnemyAI : MonoBehaviour
 
         transform.localScale = scale;
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Bullet bullet = collision.gameObject.GetComponent<Bullet>();
@@ -240,4 +267,5 @@ public class EnemyAI : MonoBehaviour
         _speed = speed;
         _speedLerp = speedLerp;
     }
+  
 }
