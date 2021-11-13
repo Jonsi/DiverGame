@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     //Vars
     public float Speed = 10f;
-    public PlayerState CurretState;
+    public PlayerState CurrentState;
 
     private Vector2 velocity;
 
@@ -55,10 +55,10 @@ public class PlayerController : MonoBehaviour
     
     public void SetState(PlayerState state)
     {
-        if (CurretState == state)
+        if (CurrentState == state)
             return;
 
-        CurretState = state;
+        CurrentState = state;
         switch (state)
         {
             case PlayerState.Idle:
