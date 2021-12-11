@@ -12,7 +12,6 @@ public enum WeaponType
 public class Weapon : CollectableItem
 {
     public WeaponType Type;
-    public int Damage = 1;
 
     public virtual void Fire()
     {

@@ -167,12 +167,12 @@ GameObject:
   - component: {fileID: 289894230337119972}
   - component: {fileID: 289894230337119973}
   - component: {fileID: 289894230337119970}
-  - component: {fileID: 289894230337067291}
+  - component: {fileID: 7816375523631235472}
+  - component: {fileID: 289894230337067289}
   - component: {fileID: 289894230337067290}
   - component: {fileID: 289894230337119974}
   - component: {fileID: 289894230337119968}
   - component: {fileID: 289894230337119969}
-  - component: {fileID: 289894230337067289}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -215,8 +215,6 @@ MonoBehaviour:
   SwimSkin: 3
   State: 1
   UpdateState: 0
-  FlipX: 0
-  FlipY: 0
   JumpFixPos: {fileID: 0}
   JumpSpeed: 1
   AimSpeed: 4
@@ -225,7 +223,7 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   RgdBody: {fileID: 289894230337119974}
   PlayerStats: {fileID: 289894230337119973}
-  Spine: {fileID: 289894230337067291}
+  Spine: {fileID: 7816375523631235472}
   canShoot: 0
 --- !u!114 &289894230337119973
 MonoBehaviour:
@@ -283,7 +281,7 @@ MonoBehaviour:
   _animationName: 2_idle_on_boat
   loop: 0
   timeScale: 1
---- !u!114 &289894230337067291
+--- !u!114 &7816375523631235472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,7 +290,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 289894230337119971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 554889c7f597ce544a9833cb39ec2ecc, type: 3}
+  m_Script: {fileID: 11500000, guid: 87815bb7bb14d7447b4d1a7629617971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Bones: {fileID: 289894230637453796}
@@ -308,6 +306,22 @@ MonoBehaviour:
   AimAnim: {fileID: 11400000, guid: b9a2a3d82ed15b5448046b85846ed75f, type: 2}
   HitAnim: {fileID: 11400000, guid: bdec3998d2e31bc429fe1bd5569a40d8, type: 2}
   DeathAnim: {fileID: 11400000, guid: 70a45637bc2e2cf4c85f454518499dbe, type: 2}
+--- !u!114 &289894230337067289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289894230337119971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f726fb798ad621458c431cb9966d91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneRoot: {fileID: 289894230637453797}
+  flipBy180DegreeRotation: 0
+  skeletonRenderer: {fileID: 289894230337119970}
+  skeletonGraphic: {fileID: 0}
 --- !u!114 &289894230337067290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +381,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e5848c95edb525144bb9c332d7f3f591, type: 2}
+  - {fileID: 2100000, guid: e1ba5600c4192bc4bac1201e58056026, type: 2}
   - {fileID: 2100000, guid: 7492d4b4fc32ec540a6469a1283a7ddb, type: 2}
   - {fileID: 2100000, guid: 624499745bf2fac49b0d9fe6f70d2670, type: 2}
   m_StaticBatchInfo:
@@ -390,22 +404,6 @@ MeshRenderer:
   m_SortingLayerID: 654772341
   m_SortingLayer: 2
   m_SortingOrder: 0
---- !u!114 &289894230337067289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289894230337119971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f726fb798ad621458c431cb9966d91d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boneRoot: {fileID: 289894230637453797}
-  flipBy180DegreeRotation: 0
-  skeletonRenderer: {fileID: 289894230337119970}
-  skeletonGraphic: {fileID: 0}
 --- !u!1 &289894230637453798
 GameObject:
   m_ObjectHideFlags: 0

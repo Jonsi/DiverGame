@@ -10,7 +10,6 @@ public enum PlayerSkin
     swim_blue,
     swim_purple
 }
-
 public enum PlayerState
 {
     none,

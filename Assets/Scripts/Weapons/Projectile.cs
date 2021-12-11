@@ -6,7 +6,7 @@ public enum ProjectileType
 {
     Deafult,
     Bullet,
-    Arrow
+    Projectile
 }
 
 public class Projectile : MonoBehaviour

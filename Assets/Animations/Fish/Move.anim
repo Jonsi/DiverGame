@@ -160,7 +160,7 @@ AnimationClip:
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 2100000, guid: 0525d95c2eba1764b9c7de3bcf49f2b8, type: 2}
+      value: {fileID: 2100000, guid: 367601ad8795476479f5544ae336dd38, type: 2}
     attribute: m_Materials.Array.data[0]
     path: 
     classID: 212
@@ -232,7 +232,7 @@ AnimationClip:
     - {fileID: 7536326925558415901, guid: 610488ecf279dbf4e9b96b2c9040a554, type: 3}
     - {fileID: 862048821995144640, guid: 610488ecf279dbf4e9b96b2c9040a554, type: 3}
     - {fileID: -2042266362989716742, guid: 610488ecf279dbf4e9b96b2c9040a554, type: 3}
-    - {fileID: 2100000, guid: 0525d95c2eba1764b9c7de3bcf49f2b8, type: 2}
+    - {fileID: 2100000, guid: 367601ad8795476479f5544ae336dd38, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
