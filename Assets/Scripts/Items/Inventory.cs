@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<Item> Items;
     public int Coins;
     public int Gold;
+    public RangeWeapon RangeWeapon;
+    public Weapon MeleeWeapon;
+    public List<InventoryItem> CollectableItems;
 
     public void AddValueableItem(ValueableItem item)
     {
@@ -15,10 +17,10 @@ public class Inventory : MonoBehaviour
             case ValueType.Deafult:
                 break;
             case ValueType.Coins:
-                Coins += item.Amount;
+                Coins++;
                 break;
             case ValueType.Gold:
-                Gold += item.Amount;
+                Gold++;
                 break;
             default:
                 break;
@@ -26,6 +28,11 @@ public class Inventory : MonoBehaviour
 
         EventManager.Singleton.OnValuableItemAdded(item);
     }
+}
 
-
+[System.Serializable]
+public class InventoryItem
+{
+    public CollectableItem Item;
+    public int count = 1;
 }

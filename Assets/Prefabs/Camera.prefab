@@ -66,7 +66,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 10
+  m_CameraDistance: 16.64
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -115,7 +115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5046310295701276718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.94, y: -3.3, z: -9.07}
+  m_LocalPosition: {x: -8.89, y: 3.58, z: -16.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5046310296570568759}
@@ -357,7 +357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5046310296852619356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.94, y: -3.3, z: -9.07}
+  m_LocalPosition: {x: -8.89, y: 3.58, z: -16.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5046310294797956525}
@@ -431,16 +431,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3706713503459958682, guid: 80bdfa3411eaa7f47b61bf15da221046,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3706713503459958682, guid: 80bdfa3411eaa7f47b61bf15da221046,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3706713503459958682, guid: 80bdfa3411eaa7f47b61bf15da221046,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -452,7 +442,7 @@ PrefabInstance:
     - target: {fileID: 3706713503459958682, guid: 80bdfa3411eaa7f47b61bf15da221046,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.758531
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3706713503459958682, guid: 80bdfa3411eaa7f47b61bf15da221046,
         type: 3}
@@ -493,6 +483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaterShader
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706713503459958759, guid: 80bdfa3411eaa7f47b61bf15da221046,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80bdfa3411eaa7f47b61bf15da221046, type: 3}

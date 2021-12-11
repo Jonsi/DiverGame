@@ -249,7 +249,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+        Projectile bullet = collision.gameObject.GetComponent<Projectile>();
 
         if (bullet == null)
         {

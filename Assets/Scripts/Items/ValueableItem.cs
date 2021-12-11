@@ -12,5 +12,4 @@ public enum ValueType
 public class ValueableItem : CollectableItem
 {
     public ValueType ValueType = ValueType.Deafult;
-    
 }
