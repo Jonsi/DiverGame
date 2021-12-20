@@ -45,7 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemType: 2
   Type: 2
-  Damage: 1
   ProjectilePrefab: {fileID: 9157828888064070922, guid: ea4b0480978338e4ca0c9bbf08269e43,
     type: 3}
-  ShootForce: 2
+  ShootForce: 5

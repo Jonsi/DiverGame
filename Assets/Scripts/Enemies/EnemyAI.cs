@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
     [Range(0f, 1f)] public float WaterResistance = 0.5f;
 
     [Header("Patrol")]
-    public float PatrolSpeed = 5f;
+    [Range(0f, 1f)] public float PatrolSpeed = 5f;
     [Range(0f, 1f)] public float PatrolSpeedLerp = 0.5f;
     public float MinPatrolRadius = 2f;
     public float MaxPatrolRadius = 10f;
@@ -184,7 +184,7 @@ public class EnemyAI : MonoBehaviour
     public void Death()
     {
         RgdBdy.velocity = Vector2.zero;
-        Anmtr.Play("death");
+        Anmtr.Play("Death");
         EventManager.Singleton.OnEnemyDied(Enemy, ActionType.Kill);
     }
     private void StartPatrol()
@@ -247,6 +247,7 @@ public class EnemyAI : MonoBehaviour
 
         transform.localScale = scale;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Projectile bullet = collision.gameObject.GetComponent<Projectile>();

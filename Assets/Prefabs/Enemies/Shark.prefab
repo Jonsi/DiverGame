@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d7023e3e7a9c7da4596bd74586d54412, type: 2}
+  - {fileID: 2100000, guid: 1da52aad2826bc94c9ac20405647c93d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7067333cde3cf534a9b8066b9bbd6869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyType: 2
+  Type: 1
+  MovementType: 1
+  CurrentState: 1
   HP: 1
   Damage: 1
   ExpPoints: 1
@@ -174,14 +176,22 @@ MonoBehaviour:
   Enemy: {fileID: 4720812365699738781}
   RgdBdy: {fileID: 4720812365699738780}
   Anmtr: {fileID: 4720812365699738769}
-  Speed: 30
-  ChaseSpeed: 45
-  ChargeForce: 2
-  PatrolRadius: 5
-  State: 0
-  ChargeDistance: 5
-  ChaseDistance: 8
+  WaterResistance: 0.5
+  PatrolSpeed: 0.7
+  PatrolSpeedLerp: 0.5
+  MinPatrolRadius: 2
+  MaxPatrolRadius: 10
+  PatrolClamp_Y: 0.5
   PatrolFlipDistance: 0.2
-  SpawnPoint: {x: 0, y: 0}
-  PartolTarget: {x: 0, y: 0}
-  Target: {x: 0, y: 0}
+  ReachedTargetDistance: 2
+  PatrolRestTimer: 2
+  EscapeDistance: 10
+  EscapeClampY: 0.5
+  EscapeSpeed: 10
+  EscapeSpeedLerp: 0.5
+  ChaseSpeed: 45
+  ChaseSpeedLerp: 20
+  ChaseDistance: 8
+  AttackForce: 30
+  AttackDistance: 5
+  attackDelay: 2
