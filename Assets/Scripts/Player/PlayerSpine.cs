@@ -24,22 +24,15 @@ public class PlayerSpine : MonoBehaviour
                          DeathAnim;
 
     private TrackEntry _trackEntry;
-
     private void OnEnable()
     {
         Skeleton.state.Complete += OnAnimationComplete;
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void OnDisable()
     {
         Skeleton.state.Complete -= OnAnimationComplete;
     }
-
     public void SetAnimation(int trackIndex,AnimationReferenceAsset animation, PlayerSkin skin, bool loop , float speed = 1)
     {
         SetSkin(skin);
@@ -47,7 +40,6 @@ public class PlayerSpine : MonoBehaviour
         _trackEntry.TimeScale = speed;
         Skeleton.state.Complete += OnAnimationComplete;
     }
-
     private void SetSkin(PlayerSkin skin)
     {
         if (Skeleton.initialSkinName != skin.ToString())
@@ -87,7 +79,5 @@ public class PlayerSpine : MonoBehaviour
         {
             AnimEventHandler.OnDeathComplete();
         }
-
-        //Skeleton.state.Complete -= OnAnimationComplete;
     }
 }

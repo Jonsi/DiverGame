@@ -9,8 +9,4 @@ public class PlayerBones : MonoBehaviour
     public SkeletonUtilityBone SwimRootBone;
     public SkeletonUtilityBone ProjectileBone;
 
-    private void Awake()
-    {
-        
-    }
 }

@@ -952,11 +952,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 191796510045762736, guid: 34de9f8fee11f994f92f776f28c18cde,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 191796510045762742, guid: 34de9f8fee11f994f92f776f28c18cde,
         type: 3}
       propertyPath: m_Name
@@ -1905,21 +1900,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 289894230337119969, guid: 8bacda8ffd59a5d4eaf1a9c9a02a9d20,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 289894230337119969, guid: 8bacda8ffd59a5d4eaf1a9c9a02a9d20,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 624499745bf2fac49b0d9fe6f70d2670, type: 2}
-    - target: {fileID: 289894230337119970, guid: 8bacda8ffd59a5d4eaf1a9c9a02a9d20,
-        type: 3}
-      propertyPath: initialSkinName
-      value: stand_blue
       objectReference: {fileID: 0}
     - target: {fileID: 289894230337119971, guid: 8bacda8ffd59a5d4eaf1a9c9a02a9d20,
         type: 3}

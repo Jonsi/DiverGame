@@ -9,16 +9,27 @@ public enum ProjectileType
     Projectile
 }
 
-public class Projectile : MonoBehaviour
+public class Projectile : AttachableItem
 {
     public int Damage = 1;
+    public float DestroyTimer = 5f;
     public ProjectileType ProjectileType = ProjectileType.Deafult;
     public Rigidbody2D rgdBdy;
 
     private Vector2 _direction;
     private float _speed;
+    private bool _hasHit = false;
 
-    public void SetSpeed(float speed)
+    public IEnumerator SelfDestroy(Projectile obj, float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        if (!_hasHit)
+        {
+            Destroy(obj.gameObject);
+        }
+    }
+        public void SetSpeed(float speed)
     {
         _speed = speed;
     }
@@ -33,4 +44,21 @@ public class Projectile : MonoBehaviour
         rgdBdy.velocity = _direction * _speed;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Enemy enemy = collision.collider.gameObject.GetComponent<Enemy>();
+
+        if(enemy!= null)
+        {
+            _hasHit = true;
+            StickTo(enemy.transform);
+        }
+    }
+
+    private void StickTo(Transform objTransform)
+    {
+        rgdBdy.velocity = Vector2.zero;
+        rgdBdy.isKinematic = true;
+        transform.parent = objTransform;
+    }
 }

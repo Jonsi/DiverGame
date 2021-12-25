@@ -99,7 +99,8 @@ MonoBehaviour:
   Gold: 0
   RangeWeapon: {fileID: 967477478546586155, guid: e52fb791d69475144857f1b17a46f950,
     type: 3}
-  MeleeWeapon: {fileID: 0}
+  MeleeWeapon: {fileID: 3139091910143682152, guid: 10ccfa440c8c40a4180b15da6747c374,
+    type: 3}
   CollectableItems: []
 --- !u!1 &289894230103991435
 GameObject:
@@ -257,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: c33ec364196142142a70194002695af4, type: 2}
-  initialSkinName: swim_blue
+  initialSkinName: stand_blue
   initialFlipX: 0
   initialFlipY: 0
   updateWhenInvisible: 3
@@ -381,8 +382,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e1ba5600c4192bc4bac1201e58056026, type: 2}
-  - {fileID: 2100000, guid: 7492d4b4fc32ec540a6469a1283a7ddb, type: 2}
+  - {fileID: 2100000, guid: ab17044ec8668d948994ce10595fb3a4, type: 2}
   - {fileID: 2100000, guid: 624499745bf2fac49b0d9fe6f70d2670, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
     }
-
+    
     public void SetState(PlayerState state,bool force = false)
     {
         if (!force && _state == state)
@@ -205,6 +205,11 @@ public class PlayerController : MonoBehaviour
             SetState(PlayerState.Shoot);
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ToggleWeapon();
+        }
+
     }
     public void CollectItem(CollectableItem item,ActionType action)
     {
@@ -283,7 +288,6 @@ public class PlayerController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
     public Vector2 GetDirection()
     {
         return _direction.normalized;
@@ -296,12 +300,27 @@ public class PlayerController : MonoBehaviour
     {
         if(Weapon.Type == WeaponType.Range)
         {
-            Weapon = Inventory.MeleeWeapon;
+            SetWeapon(Inventory.MeleeWeapon);
         }
         else
         {
-            Weapon = Inventory.RangeWeapon;
+            SetWeapon(Inventory.RangeWeapon);
         }
+    }
+    public void SetWeapon(Weapon weapon)
+    {
+        Spine.Skeleton.skeleton.SetAttachment(weapon.Slot, weapon.Attachment);
+
+        if (weapon.Type == WeaponType.Melee)
+        {
+            Spine.Skeleton.skeleton.SetAttachment(Inventory.RangeWeapon.ProjectilePrefab.Slot, null);
+        }
+        else
+        {
+            Spine.Skeleton.skeleton.SetAttachment(Inventory.RangeWeapon.ProjectilePrefab.Slot, Inventory.RangeWeapon.ProjectilePrefab.Attachment);
+        }
+
+        Weapon = weapon;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -5,6 +5,7 @@ using Spine;
 
 public class RangeWeapon : Weapon
 {
+    [Header("Range")]
     public Projectile ProjectilePrefab;
     public float ShootForce = 2f;
 
@@ -25,5 +26,6 @@ public class RangeWeapon : Weapon
         Projectile pro = Instantiate(ProjectilePrefab, projectilePosition, projectileRotation) ;
         pro.SetDirection(PlayerController.Singleton.GetDirection());//todo: set direction from as bone direciton
         pro.SetSpeed(ShootForce);
+        pro.StartCoroutine(pro.SelfDestroy(pro, pro.DestroyTimer));
     }
 }
