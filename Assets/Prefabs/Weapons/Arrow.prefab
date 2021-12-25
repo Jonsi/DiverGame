@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1246472931
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 6594288189861276403, guid: 41d75340315582c41af5612aca71ecc6,
     type: 3}
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.58, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 1, y: 0.5}
@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 0.31}
+  m_Size: {x: 0.28, y: 0.31}
   m_EdgeRadius: 0
 --- !u!114 &9157828888064070922
 MonoBehaviour:
@@ -144,6 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a538d84b4af803d41b869ab1bb65d9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemType: 0
+  asset: {fileID: 11400000, guid: c33ec364196142142a70194002695af4, type: 2}
+  Slot: arrow
+  Attachment: arrow
   Damage: 1
+  DestroyTimer: 3
   ProjectileType: 2
   rgdBdy: {fileID: 5059049801495940185}

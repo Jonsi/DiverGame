@@ -52,13 +52,6 @@ public class EnemyAI : MonoBehaviour
     {
         SetState(EnemyState.Idle);
     }
-    public IEnumerator RestCOR()
-    {
-        SetState(EnemyState.Rest);
-        yield return new WaitForSeconds(_restTimer);
-        SetState(EnemyState.Idle);
-    }
-
     private void Update()
     {
 
@@ -84,7 +77,7 @@ public class EnemyAI : MonoBehaviour
     //State Management
     public void HandlePlayerDistance()
     {
-        if(_player == null)
+        if (_player == null)
         {
             SetState(EnemyState.Patrol);
             return;
@@ -173,13 +166,13 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.Death:
                 break;
             case EnemyState.Escape:
+                ChangeSpeed(EscapeSpeed, EscapeSpeedLerp);
                 Escape();
                 break;
             default:
                 break;
         }
     }
-
     //State methods
     public void Death()
     {
@@ -201,16 +194,10 @@ public class EnemyAI : MonoBehaviour
     
     public void Escape()
     {
-        if(_playerDistance > EscapeDistance)
-        {
-            SetState(EnemyState.Patrol);
-            return;
-        }
-
-        ChangeSpeed(EscapeSpeed, EscapeSpeedLerp);
-        Vector2 escapeDir = (_target - (Vector2)transform.position).normalized * -1;
+        Vector2 escapeDir = (PlayerController.Singleton.transform.position - transform.position).normalized * -1;
         escapeDir.y *= EscapeClampY;
         SetTarget((Vector2)transform.position + escapeDir);
+        Debug.DrawRay(transform.position, escapeDir * 2, Color.green);
     }
     public void Attack()
     {
@@ -248,6 +235,7 @@ public class EnemyAI : MonoBehaviour
         transform.localScale = scale;
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Projectile bullet = collision.gameObject.GetComponent<Projectile>();
@@ -268,5 +256,12 @@ public class EnemyAI : MonoBehaviour
         _speed = speed;
         _speedLerp = speedLerp;
     }
-  
+    public IEnumerator RestCOR()
+    {
+        SetState(EnemyState.Rest);
+        yield return new WaitForSeconds(_restTimer);
+        SetState(EnemyState.Idle);
+    }
+
+
 }

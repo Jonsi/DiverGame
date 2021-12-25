@@ -12,5 +12,6 @@ public enum ItemType
 [System.Serializable]
 public class Item : MonoBehaviour
 {
+    [Header("Item")]
     public ItemType ItemType = ItemType.Deafult;
 }

@@ -49,6 +49,9 @@ TagManager:
   - name: Player
     uniqueID: 654772341
     locked: 0
+  - name: Projectiles
+    uniqueID: 1246472931
+    locked: 0
   - name: Animals
     uniqueID: 4063553651
     locked: 0

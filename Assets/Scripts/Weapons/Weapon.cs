@@ -9,8 +9,9 @@ public enum WeaponType
     Range
 }
 
-public class Weapon : CollectableItem
+public class Weapon : AttachableItem
 {
+    [Header("Weapon")]
     public WeaponType Type;
 
     public virtual void Fire()
