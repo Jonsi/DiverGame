@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Spine;
-
 public class RangeWeapon : Weapon
 {
     [Header("Range")]
@@ -26,6 +24,7 @@ public class RangeWeapon : Weapon
         Projectile pro = Instantiate(ProjectilePrefab, projectilePosition, projectileRotation) ;
         pro.SetDirection(PlayerController.Singleton.GetDirection());//todo: set direction from as bone direciton
         pro.SetSpeed(ShootForce);
+        pro.Damage = Damage;
         pro.StartCoroutine(pro.SelfDestroy(pro, pro.DestroyTimer));
     }
 }

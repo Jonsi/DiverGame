@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4720812365699738771}
   - component: {fileID: 4720812365699738768}
   - component: {fileID: 4720812365699738769}
-  - component: {fileID: 4720812365699738770}
   - component: {fileID: 4720812365699738780}
   - component: {fileID: 4720812365699738781}
   - component: {fileID: 4720812365699738783}
+  - component: {fileID: 3146873209124117471}
   m_Layer: 11
   m_Name: Shark
   m_TagString: Enemy
@@ -106,22 +106,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &4720812365699738770
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4720812365699738774}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.38, y: 0.13}
-  m_Size: {x: 2.23, y: 0.46}
-  m_Direction: 1
 --- !u!50 &4720812365699738780
 Rigidbody2D:
   serializedVersion: 4
@@ -177,6 +161,7 @@ MonoBehaviour:
   RgdBdy: {fileID: 4720812365699738780}
   Anmtr: {fileID: 4720812365699738769}
   WaterResistance: 0.5
+  WorldBounderies: {fileID: 0}
   PatrolSpeed: 0.7
   PatrolSpeedLerp: 0.5
   MinPatrolRadius: 2
@@ -195,3 +180,35 @@ MonoBehaviour:
   AttackForce: 30
   AttackDistance: 5
   attackDelay: 2
+--- !u!60 &3146873209124117471
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720812365699738774}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.5, y: 4.21875}
+    newSize: {x: 10.36, y: 4.83}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.0542668, y: 0.76413155}
+      - {x: -2.130074, y: 0.1334567}
+      - {x: -2.1723046, y: -0.24231252}
+      - {x: -0.0099262, y: -0.92138636}
+      - {x: 1.397652, y: -1.0908159}
+      - {x: 3.0687232, y: -0.41772687}
+      - {x: 2.7142625, y: 0.13445169}

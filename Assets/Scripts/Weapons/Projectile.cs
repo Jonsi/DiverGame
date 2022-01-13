@@ -6,12 +6,11 @@ public enum ProjectileType
 {
     Deafult,
     Bullet,
-    Projectile
+    Arrow
 }
 
-public class Projectile : AttachableItem
+public class Projectile : Weapon
 {
-    public int Damage = 1;
     public float DestroyTimer = 5f;
     public ProjectileType ProjectileType = ProjectileType.Deafult;
     public Rigidbody2D rgdBdy;

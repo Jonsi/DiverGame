@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
 
     [Header("General")]
     [Range(0f, 1f)] public float WaterResistance = 0.5f;
+    public Boundriies WorldBounderies;
 
     [Header("Patrol")]
     [Range(0f, 1f)] public float PatrolSpeed = 5f;
@@ -184,20 +185,17 @@ public class EnemyAI : MonoBehaviour
     {
         Vector2 patrolDir = Random.insideUnitCircle.normalized * Random.Range(MinPatrolRadius, MaxPatrolRadius);
         patrolDir.y *= PatrolClamp_Y;
-        SetTarget(patrolDir);
+        SetTarget((Vector2) transform.position + patrolDir);
     }
-
     public void Chase()
     {
         ChangeSpeed(ChaseSpeed, ChaseSpeedLerp);
     }
-    
     public void Escape()
     {
         Vector2 escapeDir = (PlayerController.Singleton.transform.position - transform.position).normalized * -1;
         escapeDir.y *= EscapeClampY;
         SetTarget((Vector2)transform.position + escapeDir);
-        Debug.DrawRay(transform.position, escapeDir * 2, Color.green);
     }
     public void Attack()
     {
@@ -205,7 +203,6 @@ public class EnemyAI : MonoBehaviour
         //animate
         //Rest
     }
-
     //AI
     public void SetTarget(Vector2 target)
     {
@@ -214,7 +211,7 @@ public class EnemyAI : MonoBehaviour
             _target.y = 0f;
         }
 
-        _target = target;
+        _target = WorldBounderies.ClampPosToBounderies(target);
     }
     public void MoveToTarget()
     {
@@ -234,21 +231,20 @@ public class EnemyAI : MonoBehaviour
 
         transform.localScale = scale;
     }
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Projectile bullet = collision.gameObject.GetComponent<Projectile>();
+        Weapon weapon = collision.gameObject.GetComponent<Weapon>();
 
-        if (bullet == null)
+        if (weapon == null)
         {
             return;
         }
 
-        Enemy.HP -= bullet.Damage;
+        Enemy.HP -= weapon.Damage;
+
         if (Enemy.HP <= 0)
         {
-            Death();
+            SetState(EnemyState.Death);
         }
     }
     private void ChangeSpeed(float speed, float speedLerp = 1f)
