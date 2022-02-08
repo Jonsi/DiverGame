@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.13296545, g: 0.19145328, b: 0.33962262, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e763d1a73a77219458472a0ade1e89ac, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.20749268, g: 0.21147677, b: 0.14576986, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -807,6 +807,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5046310295701276717, guid: 0e9950bbf3b8ce249b3a4610274a54da,
         type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046310295701276717, guid: 0e9950bbf3b8ce249b3a4610274a54da,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046310295701276717, guid: 0e9950bbf3b8ce249b3a4610274a54da,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046310295701276717, guid: 0e9950bbf3b8ce249b3a4610274a54da,
+        type: 3}
       propertyPath: m_projectionMatrixMode
       value: 1
       objectReference: {fileID: 0}
@@ -843,7 +858,7 @@ PrefabInstance:
     - target: {fileID: 5046310295701276883, guid: 0e9950bbf3b8ce249b3a4610274a54da,
         type: 3}
       propertyPath: m_VolumeLayerMask.m_Bits
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5046310296570568758, guid: 0e9950bbf3b8ce249b3a4610274a54da,
         type: 3}
@@ -1901,6 +1916,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 289894230337119969, guid: 8bacda8ffd59a5d4eaf1a9c9a02a9d20,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: acb928713e8944a4b809a891ebd33338, type: 2}
     - target: {fileID: 289894230337119971, guid: 8bacda8ffd59a5d4eaf1a9c9a02a9d20,
         type: 3}
       propertyPath: m_Name
